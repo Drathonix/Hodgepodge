@@ -168,6 +168,12 @@ public class TweaksConfig {
     @Config.RequiresMcRestart
     public static boolean makeBigFirsPlantable;
 
+    // Draconic Evolution
+    @Config.Comment("Allow other mods to use the draconic evolution configuration GUI without configuration profiles.")
+    @Config.DefaultBoolean(true)
+    @Config.RequiresMcRestart
+    public static boolean draconicEvolutionConfigurationIntegration;
+
     // Extra Utilities
 
     @Config.Comment("Disables the spawn of zombie aid when zombie is killed by Extra Utilities Spikes, since it can spawn them too far.")
@@ -196,6 +202,11 @@ public class TweaksConfig {
     @Config.RangeInt(min = 1, max = 64)
     @Config.DefaultInt(64)
     public static int ic2SeedMaxStackSize;
+
+    @Config.Comment("Allow IC2 armor to be configured through the Draconic Evolution GUI")
+    @Config.DefaultBoolean(true)
+    @Config.RequiresMcRestart
+    public static boolean ic2DraconicEvolutionIntegration;
 
     // Minechem
 

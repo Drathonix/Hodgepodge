@@ -17,10 +17,12 @@ public enum TargetedMod {
     BUKKIT("Bukkit/Thermos", "Bukkit", null),
     COFH_CORE("CoFHCore", "cofh.asm.LoadingPlugin", "CoFHCore"),
     DAMAGE_INDICATORS("Damage Indicators", null, "DamageIndicatorsMod"),
+    DRACONIC_EVOLUTION("Draconic Evolution", null, "DraconicEvolution"),
     EXTRATIC("ExtraTiC", null, "ExtraTiC"),
     EXTRA_UTILITIES("ExtraUtilities", null, "ExtraUtilities"),
     FASTCRAFT("FastCraft", "fastcraft.Tweaker"),
     GALACTICRAFT_CORE("GalacticraftCore", "micdoodle8.mods.galacticraft.core.asm.GCLoadingPlugin", "GalacticraftCore"),
+    GRAVISUITE("Graviation Suite", null, "GraviSuite"),
     GT5U("GregTech5u", null, "gregtech"), // Also matches GT6.
     GT6("GregTech6", "gregtech.asm.GT_ASM", "gregapi"), // Can be used to exclude GT6 from the GT5U target.
     GTNHLIB("GTNHLib", "com.gtnewhorizon.gtnhlib.core.GTNHLibCore", "gtnhlib"),

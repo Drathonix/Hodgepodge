@@ -425,7 +425,37 @@ public enum Mixins {
             .setSide(Side.CLIENT)
             .addMixinClasses("forge.MixinLanguageRegistry", "forge.MixinFMLClientHandler", "ic2.MixinLocalization")
             .setApplyIf(() -> FixesConfig.fixIc2ResourcePackTranslation).addTargetedMod(TargetedMod.IC2)),
-
+    IC2_DE_INTEGRATION(new Builder("IC2 Draconic Config Integration").setPhase(Phase.LATE).setSide(Side.BOTH)
+            .addMixinClasses(
+                    "ic2.MixinIC2QuantumDEIntegration",
+                    "ic2.MixinIC2NanoSuitDEIntegration",
+                    "ic2.MixinIC2JetpackDEIntegration",
+                    "ic2.MixinIC2NightVisionGogglesDEIntegration",
+                    "ic2.MixinIC2MiningLaserDEIntegration")
+            .setApplyIf(() -> TweaksConfig.ic2DraconicEvolutionIntegration).addTargetedMod(TargetedMod.IC2)
+            .addTargetedMod(TargetedMod.DRACONIC_EVOLUTION)),
+    // GraviSuite
+    GRAVISUITE_DE_INTEGRATION(
+            new Builder("GraviSuite Draconic Config Integration").setPhase(Phase.LATE).setSide(Side.BOTH)
+                    .addMixinClasses(
+                            "gravisuite.MixinGraviAdvancedJetPackDEIntegration",
+                            "gravisuite.MixinGraviChestPlateDEIntegration",
+                            "gravisuite.MixinGraviVajraDEIntegration",
+                            "gravisuite.MixinGraviAdvChainsawDEIntegration",
+                            "gravisuite.MixinGraviAdvDrillDEIntegration",
+                            "gravisuite.MixinGraviAdvancedLappackDEIntegration")
+                    .setApplyIf(() -> TweaksConfig.ic2DraconicEvolutionIntegration)
+                    .addTargetedMod(TargetedMod.GRAVISUITE).addTargetedMod(TargetedMod.DRACONIC_EVOLUTION)),
+    // Draconic Evolution
+    DRACONIC_EVOLUTION_CUSTOM_CONFIGURABILITY(new Builder("Draconic Evolution Configuration GUI Integration")
+            .setSide(Side.BOTH).setPhase(Phase.LATE)
+            .setApplyIf(() -> TweaksConfig.draconicEvolutionConfigurationIntegration)
+            .addMixinClasses("draconicevolution.MixinProfileHelper").addTargetedMod(TargetedMod.DRACONIC_EVOLUTION)),
+    DRACONIC_EVOLUTION_CUSTOM_CONFIGURABILITY_CLIENT(
+            new Builder("Draconic Evolution Configuration GUI Integration").setSide(Side.CLIENT).setPhase(Phase.LATE)
+                    .setApplyIf(() -> TweaksConfig.draconicEvolutionConfigurationIntegration)
+                    .addMixinClasses("draconicevolution.MixinComponentFieldButton")
+                    .addTargetedMod(TargetedMod.DRACONIC_EVOLUTION)),
     // Disable update checkers
     BIBLIOCRAFT_UPDATE_CHECK(new Builder("Yeet Bibliocraft Update Check").setPhase(Phase.LATE).setSide(Side.CLIENT)
             .addMixinClasses("bibliocraft.MixinVersionCheck").setApplyIf(() -> FixesConfig.removeUpdateChecks)
